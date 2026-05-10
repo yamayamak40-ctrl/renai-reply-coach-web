@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サポート | リプライAIコーチ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-soft: #2d2d4a;
+    --ink-muted: #6b6b8a;
+    --cream: #f8f6f1;
+    --warm-white: #fdfcfa;
+    --accent: #e8652a;
+    --accent-light: #f4956a;
+    --accent-pale: #fdf0e8;
+    --line-silver: #e2ddd6;
+    --card-bg: #ffffff;
+    --gradient-top: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 50%, #1e1e3a 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--gradient-top);
+    color: #fff;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(232,101,42,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 90%, rgba(232,101,42,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* ── DATE ── */
+  .date-strip {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--line-silver);
+    padding: 14px 24px;
+    text-align: center;
+  }
+  .date-strip span { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.06em; }
+  .date-strip strong { color: var(--accent); font-weight: 500; }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ── INTRO ── */
+  .intro-block {
+    background: var(--warm-white);
+    border: 1px solid var(--line-silver);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 40px 0 32px;
+    border-left: 4px solid var(--accent);
+  }
+  .intro-block p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin-bottom: 10px;
+  }
+  .intro-block p:last-child { margin-bottom: 0; }
+
+  /* ── CONTACT CARD (top) ── */
+  .contact-top {
+    background: var(--gradient-top);
+    border-radius: 16px;
+    padding: 36px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .contact-top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 75% 25%, rgba(232,101,42,0.22) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .contact-top-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .contact-top h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .contact-top p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .contact-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+  }
+  .contact-info-row:last-child { margin-bottom: 0; }
+  .ci-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-light);
+    font-weight: 600;
+    min-width: 56px;
+  }
+  .ci-value { font-size: 14px; color: #fff; }
+  .ci-value a {
+    color: var(--accent-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(244,149,106,0.4);
+    transition: border-color 0.2s;
+  }
+  .ci-value a:hover { border-color: var(--accent-light); }
+
+  /* ── CHECKLIST BOX ── */
+  .checklist-box {
+    background: var(--card-bg);
+    border: 1px solid var(--line-silver);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+  }
+  .checklist-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .check-list { list-style: none; }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line-silver);
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before {
+    content: '✓';
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* ── FAQ SECTION ── */
+  .faq-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .faq-subtitle {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  /* ── ACCORDION ── */
+  .faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--line-silver);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: 0 2px 12px rgba(26,26,46,0.07); }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.6;
+    transition: background 0.15s;
+  }
+  .faq-question:hover { background: var(--cream); }
+
+  .faq-q-badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .faq-q-text { flex: 1; }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--ink-muted);
+    transition: transform 0.25s ease;
+  }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  .faq-item.open .faq-answer { max-height: 600px; }
+
+  .faq-answer-inner {
+    padding: 0 24px 20px 66px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.95;
+    border-top: 1px solid var(--line-silver);
+    padding-top: 16px;
+  }
+
+  .faq-answer-inner p { margin-bottom: 10px; }
+  .faq-answer-inner p:last-child { margin-bottom: 0; }
+
+  .faq-answer-inner .note-inline {
+    background: var(--accent-pale);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--line-silver), transparent);
+    margin: 48px 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--line-silver);
+    background: var(--warm-white);
+  }
+  footer .app-name { font-weight: 700; color: var(--ink); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 56px 24px 44px; }
+    .contact-top { padding: 28px 20px; }
+    .checklist-box { padding: 20px; }
+    .faq-answer-inner { padding-left: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Support</span>
+    <h1>サポート</h1>
+    <p class="hero-sub">リプライAIコーチ — YAMAMOTO KENGO</p>
+  </div>
+</header>
+
+<div class="date-strip">
+  <span>最終更新日：<strong>2026年5月10日</strong></span>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>リプライAIコーチをご利用いただきありがとうございます。</p>
+    <p>本アプリに関するお問い合わせ、不具合報告、購入・復元に関するご相談、アカウント削除の依頼は、以下のメールアドレスまでご連絡ください。</p>
+  </div>
+
+  <!-- CONTACT CARD -->
+  <div class="contact-top">
+    <span class="contact-top-label">お問い合わせ窓口</span>
+    <h2>サポートへ連絡する</h2>
+    <p>通常、内容を確認のうえ順次返信いたします。</p>
+    <div class="contact-info-row">
+      <span class="ci-label">運営者</span>
+      <span class="ci-value">YAMAMOTO KENGO</span>
+    </div>
+    <div class="contact-info-row">
+      <span class="ci-label">メール</span>
+      <span class="ci-value"><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></span>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="checklist-box">
+    <h3>お問い合わせの際にご記載ください</h3>
+    <ul class="check-list">
+      <li>お問い合わせ内容・発生している問題</li>
+      <li>ご利用端末</li>
+      <li>iOSバージョン</li>
+      <li>アプリのバージョン</li>
+      <li>購入や復元に関する場合：購入日時・対象プラン</li>
+      <li>エラー画面がある場合はスクリーンショット</li>
+    </ul>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- FAQ -->
+  <div>
+    <h2 class="faq-title">よくある質問</h2>
+    <p class="faq-subtitle">FAQ — お問い合わせ前にご確認ください</p>
+
+    <div class="faq-item" id="faq1">
+      <button class="faq-question" onclick="toggleFaq('faq1')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">リプライAIコーチはどんなアプリですか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>好きな人への返信で迷った時に使えるAI返信サポートアプリです。</p>
+          <p>LINE、DM、マッチングアプリなどの会話スクリーンショットを読み込むと、AIが会話の流れを整理し、自然な返信候補、NG返信、送るタイミング、次に話すとよい話題を提案します。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq2">
+      <button class="faq-question" onclick="toggleFaq('faq2')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">初回無料で使えますか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>はい。初回は5クレジット無料で利用できます。スクリーンショット1枚につき1クレジットを使用します。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq3">
+      <button class="faq-question" onclick="toggleFaq('faq3')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">クレジットとは何ですか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>クレジットは、AI分析を利用するために必要なアプリ内単位です。原則として、スクリーンショット1枚の分析につき1クレジットを使用します。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq4">
+      <button class="faq-question" onclick="toggleFaq('faq4')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">LiteとProの違いは何ですか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p><strong>Lite</strong>：月60クレジット、相談ルーム3件まで利用できます。</p>
+          <p><strong>Pro</strong>：月120クレジット、相談ルームを無制限で利用できます。</p>
+          <p>どちらのプランでも、過去の流れを踏まえたAI分析を利用できます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq5">
+      <button class="faq-question" onclick="toggleFaq('faq5')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">追加クレジットは購入できますか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>はい。クレジットが足りなくなった場合は、追加クレジットを購入できます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq6">
+      <button class="faq-question" onclick="toggleFaq('faq6')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">購入したのに反映されません。</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>アプリ内の「購入を復元する」をお試しください。</p>
+          <div class="note-inline">それでも反映されない場合は、購入日時・対象プラン・発生している状況を記載のうえ、サポートまでお問い合わせください。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq7">
+      <button class="faq-question" onclick="toggleFaq('faq7')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">別端末でも使えますか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>Apple IDと連携している場合は、Appleでサインインすることでデータを引き継げます。また、購入済みのプランは「購入を復元する」から確認できます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq8">
+      <button class="faq-question" onclick="toggleFaq('faq8')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">匿名ログインとは何ですか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>初回利用時に、Apple IDでの登録をせずにすぐアプリを始められる仕組みです。</p>
+          <p>別端末でデータを使いたい場合や、機種変更に備えたい場合は、後からApple IDと連携してください。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq9">
+      <button class="faq-question" onclick="toggleFaq('faq9')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">スクリーンショットは保存されますか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>スクリーンショットはAI分析のために使用されます。原則として、画像そのものを長期保存しません。分析結果や会話サマリーは、相談履歴や次回以降の分析のために保存される場合があります。</p>
+          <div class="note-inline">相手の名前、アイコン、電話番号など、不要な個人情報はできるだけ隠してからアップロードすることをおすすめします。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq10">
+      <button class="faq-question" onclick="toggleFaq('faq10')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">AIの返信は必ず正しいですか？</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>いいえ。AIの提案は参考情報です。相手の気持ちや状況を断定するものではなく、交際や関係改善を保証するものでもありません。</p>
+          <p>最終的な判断はユーザーご自身で行ってください。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item" id="faq11">
+      <button class="faq-question" onclick="toggleFaq('faq11')" aria-expanded="false">
+        <span class="faq-q-badge">Q</span>
+        <span class="faq-q-text">アカウントを削除したいです。</span>
+        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <p>以下のメールアドレスまでご連絡ください。</p>
+          <div class="note-inline">件名に「リプライAIコーチ アカウント削除希望」と記載し、可能であればアプリ内のユーザー識別情報や登録状況をお知らせください。内容を確認のうえ、対応いたします。<br><br>メール：<a href="mailto:yamayamak40@yahoo.co.jp" style="color:var(--accent);">yamayamak40@yahoo.co.jp</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /faq -->
+
+</div>
+
+<footer>
+  <p><span class="app-name">リプライAIコーチ</span> &nbsp;·&nbsp; YAMAMOTO KENGO &nbsp;·&nbsp; © 2026</p>
+</footer>
+
+<script>
+  function toggleFaq(id) {
+    const item = document.getElementById(id);
+    const btn = item.querySelector('.faq-question');
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  }
+</script>
+
+</body>
+</html>
