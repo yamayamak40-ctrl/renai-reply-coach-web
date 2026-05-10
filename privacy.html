@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | リプライAIコーチ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-soft: #2d2d4a;
+    --ink-muted: #6b6b8a;
+    --cream: #f8f6f1;
+    --warm-white: #fdfcfa;
+    --accent: #e8652a;
+    --accent-light: #f4956a;
+    --accent-pale: #fdf0e8;
+    --line-silver: #e2ddd6;
+    --card-bg: #ffffff;
+    --gradient-top: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 50%, #1e1e3a 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── HERO HEADER ── */
+  .hero {
+    background: var(--gradient-top);
+    color: #fff;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(232,101,42,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 90%, rgba(232,101,42,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── DATE BADGE ── */
+  .date-strip {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--line-silver);
+    padding: 14px 24px;
+    text-align: center;
+  }
+  .date-strip span {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+  }
+  .date-strip strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── INTRO ── */
+  .intro-block {
+    background: var(--warm-white);
+    border: 1px solid var(--line-silver);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 40px 0 32px;
+    position: relative;
+    border-left: 4px solid var(--accent);
+  }
+
+  .intro-block p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--accent-pale);
+    border: 1px solid rgba(232,101,42,0.15);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 44px;
+  }
+
+  .toc-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .toc ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+
+  @media (max-width: 580px) {
+    .toc ol { grid-template-columns: 1fr; }
+  }
+
+  .toc ol li a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+
+  .toc ol li a:hover { color: var(--accent); }
+
+  .toc ol li a .num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 18px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 40px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .section-num {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+    letter-spacing: -0.02em;
+    margin-top: 3px;
+  }
+
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    padding-top: 4px;
+  }
+
+  .section-body {
+    background: var(--card-bg);
+    border: 1px solid var(--line-silver);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .section-body p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.95;
+    margin-bottom: 14px;
+  }
+
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── LIST ITEMS ── */
+  .policy-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .policy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line-silver);
+  }
+
+  .policy-list li:last-child { border-bottom: none; }
+
+  .policy-list li::before {
+    content: '·';
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  /* ── SERVICE LIST ── */
+  .service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .service-tag {
+    background: var(--cream);
+    border: 1px solid var(--line-silver);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ── NOTE BOX ── */
+  .note-box {
+    background: var(--accent-pale);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── CONTACT SECTION ── */
+  .contact-card {
+    background: var(--gradient-top);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 30%, rgba(232,101,42,0.25) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .contact-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .contact-info {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px 28px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-light);
+    font-weight: 600;
+    min-width: 56px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .contact-value a {
+    color: var(--accent-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232,101,42,0.4);
+    transition: border-color 0.2s;
+  }
+
+  .contact-value a:hover { border-color: var(--accent-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--line-silver);
+    background: var(--warm-white);
+  }
+
+  footer .app-name {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--line-silver), transparent);
+    margin: 8px 0 40px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 56px 24px 44px; }
+    .hero-grid { flex-direction: column; gap: 20px; align-items: flex-start; }
+    .section-body { padding: 20px; }
+    .contact-card { padding: 28px 20px; }
+    .intro-block { padding: 22px 20px; }
+    .toc { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Privacy Policy</span>
+      <h1>プライバシー<br>ポリシー</h1>
+      <p class="hero-sub">リプライAIコーチ — YAMAMOTO KENGO</p>
+    </div>
+  </div>
+</header>
+
+<div class="date-strip">
+  <span>最終更新日：<strong>2026年5月10日</strong></span>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>YAMAMOTO KENGO（以下「運営者」といいます）は、運営者が提供するアプリ「リプライAIコーチ」（以下「本アプリ」といいます）におけるユーザー情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="目次">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#s1"><span class="num">01</span>取得する情報</a></li>
+      <li><a href="#s2"><span class="num">02</span>会話スクリーンショットの取扱い</a></li>
+      <li><a href="#s3"><span class="num">03</span>利用目的</a></li>
+      <li><a href="#s4"><span class="num">04</span>AIサービスへの送信</a></li>
+      <li><a href="#s5"><span class="num">05</span>第三者サービスの利用</a></li>
+      <li><a href="#s6"><span class="num">06</span>購入情報・サブスクリプション</a></li>
+      <li><a href="#s7"><span class="num">07</span>端末インストール識別情報</a></li>
+      <li><a href="#s8"><span class="num">08</span>情報の保存期間</a></li>
+      <li><a href="#s9"><span class="num">09</span>アカウント削除</a></li>
+      <li><a href="#s10"><span class="num">10</span>ユーザーの権利</a></li>
+      <li><a href="#s11"><span class="num">11</span>セキュリティ</a></li>
+      <li><a href="#s12"><span class="num">12</span>未成年の利用</a></li>
+      <li><a href="#s13"><span class="num">13</span>ポリシーの変更</a></li>
+      <li><a href="#s14"><span class="num">14</span>お問い合わせ</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1 -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>取得する情報</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、サービス提供のために以下の情報を取得する場合があります。</p>
+      <ul class="policy-list">
+        <li>匿名ログインまたはApple ID連携に関する認証情報</li>
+        <li>ユーザーID、アカウント識別子</li>
+        <li>アプリ内で作成された相談ルーム情報</li>
+        <li>ユーザーが入力したプロフィール情報、オンボーディング回答</li>
+        <li>ユーザーがアップロードした会話スクリーンショット</li>
+        <li>AI分析結果、返信候補、相談履歴、会話サマリー</li>
+        <li>保有クレジット数、購入履歴、サブスクリプション状態</li>
+        <li>アプリの利用状況、エラー情報、クラッシュ情報</li>
+        <li>不正な無料クレジット再取得防止のための端末インストール識別情報</li>
+        <li>お問い合わせ時にユーザーが提供するメールアドレス、問い合わせ内容</li>
+      </ul>
+      <div class="note-box">性別、年齢、恋愛経験、恋愛上の悩みなどの回答は、AI提案の最適化を目的として利用されます。回答しない選択肢がある項目については、任意で回答できます。</div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 2 -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>会話スクリーンショットの取扱い</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、ユーザーが選択したLINE、DM、マッチングアプリ等の会話スクリーンショットをAI分析のために使用します。</p>
+      <p>スクリーンショットには、相手の名前、アイコン、メッセージ内容など、ユーザー本人以外の情報が含まれる可能性があります。アップロード前に、不要な個人情報はできるだけ隠していただくことを推奨します。</p>
+      <p>本アプリは、スクリーンショットをAI分析のために使用し、原則として画像そのものを長期保存しません。分析結果、返信候補、会話サマリーなどは、相談履歴や次回以降の分析精度向上のために保存される場合があります。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 3 -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>利用目的</h2>
+    </div>
+    <div class="section-body">
+      <p>取得した情報は、以下の目的で利用します。</p>
+      <ul class="policy-list">
+        <li>本アプリの提供、維持、改善のため</li>
+        <li>AIによる会話分析、返信候補、NG返信、送信タイミング、会話話題の提案のため</li>
+        <li>相談ルームごとの過去サマリーをもとに、継続的なアドバイスを行うため</li>
+        <li>アカウント、クレジット、サブスクリプション状態を管理するため</li>
+        <li>購入、復元、クレジット付与、重複購入防止を行うため</li>
+        <li>不正利用、不正な無料クレジット取得、スパム利用を防止するため</li>
+        <li>アプリの不具合調査、品質改善、利用状況分析のため</li>
+        <li>ユーザーからのお問い合わせに対応するため</li>
+        <li>利用規約違反、法令違反等に対応するため</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 4 -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>AIサービスへの送信</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、AI分析機能を提供するため、ユーザーが入力またはアップロードした情報を、AI処理を行う外部サービスに送信する場合があります。</p>
+      <p>送信される可能性がある情報には、会話スクリーンショット、会話内容、相談ルーム情報、過去サマリー、ユーザーが選択した目的や補足メモ等が含まれます。</p>
+      <p>これらの情報は、AIによる分析結果、返信候補、NG返信、送信タイミング、会話話題の生成のために使用されます。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 5 -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>第三者サービスの利用</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、以下の外部サービスを利用する場合があります。</p>
+      <div class="service-grid">
+        <span class="service-tag">Firebase Authentication</span>
+        <span class="service-tag">Cloud Firestore</span>
+        <span class="service-tag">Firebase Cloud Functions</span>
+        <span class="service-tag">Firebase App Check</span>
+        <span class="service-tag">Apple Sign in with Apple</span>
+        <span class="service-tag">Apple StoreKit</span>
+        <span class="service-tag">OpenAI API</span>
+        <span class="service-tag">その他関連サービス</span>
+      </div>
+      <div class="note-box" style="margin-top:18px;">これらのサービスにおいて、各事業者が情報を取得する場合があります。各サービスにおける情報の取扱いについては、それぞれのプライバシーポリシーをご確認ください。</div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 6 -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>購入情報・サブスクリプション情報</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、サブスクリプションおよび追加クレジット購入を提供しています。</p>
+      <p>購入処理はAppleのStoreKitを通じて行われます。運営者は、購入状態、商品ID、取引ID、有効期限、クレジット付与状況などを確認・保存する場合があります。</p>
+      <p>クレジットの重複付与や不正利用を防ぐため、Appleの取引情報をサーバー側で検証する場合があります。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 7 -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>端末インストール識別情報について</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、初回無料クレジットの不正な再取得を防止するため、端末インストールに関連する識別情報を利用する場合があります。</p>
+      <p>この情報は、不正防止を目的として使用され、ユーザーを不当に追跡する目的では使用しません。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 8 -->
+  <section class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>情報の保存期間</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリは、サービス提供に必要な期間、ユーザー情報を保存します。</p>
+      <p>ユーザーが相談ルームを削除した場合、関連する相談履歴やサマリーも削除対象となります。ただし、不正利用防止、購入履歴の確認、法令遵守、会計上の必要性、トラブル対応のために、一部情報を必要な範囲で保持する場合があります。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 9 -->
+  <section class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>アカウント削除</h2>
+    </div>
+    <div class="section-body">
+      <p>ユーザーは、アプリ内の設定またはお問い合わせにより、アカウント削除を申請できます。</p>
+      <p>アカウント削除後、ユーザーの相談ルーム、分析履歴、保存されたサマリー等は削除対象となります。ただし、不正な無料クレジット再取得の防止、購入履歴の確認、法令遵守、紛争対応のため、必要最小限の情報を保持する場合があります。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 10 -->
+  <section class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>ユーザーの権利</h2>
+    </div>
+    <div class="section-body">
+      <p>ユーザーは、法令に基づき、自己の情報の開示、訂正、削除、利用停止等を求めることができます。希望される場合は、本ポリシー末尾の連絡先までお問い合わせください。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 11 -->
+  <section class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>セキュリティ</h2>
+    </div>
+    <div class="section-body">
+      <p>運営者は、取得した情報の漏えい、滅失、改ざん、不正アクセス等を防止するため、合理的な安全管理措置を講じます。</p>
+      <p>ただし、インターネット通信やクラウドサービスの性質上、完全な安全性を保証するものではありません。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 12 -->
+  <section class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>未成年の利用</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリは、恋愛相談や会話分析を扱う性質上、18歳以上のユーザーによる利用を想定しています。未成年の方が利用する場合は、保護者の同意を得たうえで利用してください。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 13 -->
+  <section class="section" id="s13">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <h2>プライバシーポリシーの変更</h2>
+    </div>
+    <div class="section-body">
+      <p>運営者は、必要に応じて本ポリシーを変更することがあります。重要な変更がある場合は、アプリ内または適切な方法で通知します。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 14 / CONTACT -->
+  <section class="section" id="s14">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <h2>お問い合わせ</h2>
+    </div>
+    <div class="contact-card">
+      <h2>Contact</h2>
+      <p>本ポリシーに関するご質問・ご連絡はこちらまで</p>
+      <div class="contact-info">
+        <div class="contact-row">
+          <span class="contact-label">運営者</span>
+          <span class="contact-value">YAMAMOTO KENGO</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">メール</span>
+          <span class="contact-value"><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p><span class="app-name">リプライAIコーチ</span> &nbsp;·&nbsp; YAMAMOTO KENGO &nbsp;·&nbsp; © 2026</p>
+</footer>
+
+</body>
+</html>
