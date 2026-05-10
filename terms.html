@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用規約 | リプライAIコーチ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --ink-soft: #2d2d4a;
+    --ink-muted: #6b6b8a;
+    --cream: #f8f6f1;
+    --warm-white: #fdfcfa;
+    --accent: #e8652a;
+    --accent-light: #f4956a;
+    --accent-pale: #fdf0e8;
+    --line-silver: #e2ddd6;
+    --card-bg: #ffffff;
+    --gradient-top: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 50%, #1e1e3a 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--gradient-top);
+    color: #fff;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(232,101,42,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 90%, rgba(232,101,42,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* ── DATE ── */
+  .date-strip {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--line-silver);
+    padding: 14px 24px;
+    text-align: center;
+  }
+  .date-strip span { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.06em; }
+  .date-strip strong { color: var(--accent); font-weight: 500; }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── INTRO ── */
+  .intro-block {
+    background: var(--warm-white);
+    border: 1px solid var(--line-silver);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 40px 0 32px;
+    border-left: 4px solid var(--accent);
+  }
+  .intro-block p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin-bottom: 12px;
+  }
+  .intro-block p:last-child { margin-bottom: 0; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--accent-pale);
+    border: 1px solid rgba(232,101,42,0.15);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 44px;
+  }
+  .toc-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .toc ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+  @media (max-width: 580px) { .toc ol { grid-template-columns: 1fr; } }
+  .toc ol li a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .toc ol li a:hover { color: var(--accent); }
+  .toc ol li a .num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 18px;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 40px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .section-num {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+    letter-spacing: -0.02em;
+    margin-top: 3px;
+  }
+
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    padding-top: 4px;
+  }
+
+  .section-body {
+    background: var(--card-bg);
+    border: 1px solid var(--line-silver);
+    border-radius: 12px;
+    padding: 24px 28px;
+  }
+
+  .section-body p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.95;
+    margin-bottom: 14px;
+  }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── LIST ── */
+  .policy-list { list-style: none; margin: 12px 0; }
+  .policy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line-silver);
+  }
+  .policy-list li:last-child { border-bottom: none; }
+  .policy-list li::before {
+    content: '·';
+    color: var(--accent);
+    font-size: 20px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  /* ── NOTE BOX ── */
+  .note-box {
+    background: var(--accent-pale);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── CREDIT TABLE ── */
+  .credit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 13px;
+  }
+  .credit-table th {
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .credit-table th:first-child { border-radius: 8px 0 0 0; }
+  .credit-table th:last-child { border-radius: 0 8px 0 0; }
+  .credit-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line-silver);
+    color: var(--ink-soft);
+  }
+  .credit-table tr:last-child td { border-bottom: none; }
+  .credit-table tr:nth-child(even) td { background: var(--cream); }
+  .credit-val {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* ── CONTACT ── */
+  .contact-card {
+    background: var(--gradient-top);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 30%, rgba(232,101,42,0.25) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .contact-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .contact-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .contact-info {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 20px 28px;
+  }
+  .contact-row { display: flex; align-items: center; gap: 12px; }
+  .contact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-light);
+    font-weight: 600;
+    min-width: 56px;
+  }
+  .contact-value { font-size: 14px; color: #fff; font-weight: 400; }
+  .contact-value a {
+    color: var(--accent-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232,101,42,0.4);
+    transition: border-color 0.2s;
+  }
+  .contact-value a:hover { border-color: var(--accent-light); }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--line-silver), transparent);
+    margin: 8px 0 40px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--line-silver);
+    background: var(--warm-white);
+  }
+  footer .app-name { font-weight: 700; color: var(--ink); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 56px 24px 44px; }
+    .section-body { padding: 20px; }
+    .contact-card { padding: 28px 20px; }
+    .intro-block { padding: 22px 20px; }
+    .toc { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Terms of Service</span>
+    <h1>利用規約</h1>
+    <p class="hero-sub">リプライAIコーチ — YAMAMOTO KENGO</p>
+  </div>
+</header>
+
+<div class="date-strip">
+  <span>最終更新日：<strong>2026年5月10日</strong></span>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>この利用規約（以下「本規約」といいます）は、YAMAMOTO KENGO（以下「運営者」といいます）が提供するアプリ「リプライAIコーチ」（以下「本アプリ」といいます）の利用条件を定めるものです。</p>
+    <p>ユーザーは、本アプリを利用することで、本規約に同意したものとみなされます。</p>
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="目次">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#s1"><span class="num">01</span>本アプリの内容</a></li>
+      <li><a href="#s2"><span class="num">02</span>利用資格</a></li>
+      <li><a href="#s3"><span class="num">03</span>アカウント</a></li>
+      <li><a href="#s4"><span class="num">04</span>AI分析について</a></li>
+      <li><a href="#s5"><span class="num">05</span>禁止事項</a></li>
+      <li><a href="#s6"><span class="num">06</span>スクリーンショットの取扱い</a></li>
+      <li><a href="#s7"><span class="num">07</span>クレジット</a></li>
+      <li><a href="#s8"><span class="num">08</span>サブスクリプション</a></li>
+      <li><a href="#s9"><span class="num">09</span>追加クレジット</a></li>
+      <li><a href="#s10"><span class="num">10</span>購入復元</a></li>
+      <li><a href="#s11"><span class="num">11</span>料金変更・プラン変更</a></li>
+      <li><a href="#s12"><span class="num">12</span>免責事項</a></li>
+      <li><a href="#s13"><span class="num">13</span>サービスの変更・停止</a></li>
+      <li><a href="#s14"><span class="num">14</span>利用停止</a></li>
+      <li><a href="#s15"><span class="num">15</span>知的財産権</a></li>
+      <li><a href="#s16"><span class="num">16</span>規約の変更</a></li>
+      <li><a href="#s17"><span class="num">17</span>準拠法</a></li>
+      <li><a href="#s18"><span class="num">18</span>お問い合わせ</a></li>
+    </ol>
+  </nav>
+
+  <!-- S1 -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>本アプリの内容</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリは、ユーザーがアップロードしたLINE、DM、マッチングアプリ等の会話スクリーンショットや入力内容をもとに、AIが会話の流れを整理し、返信候補、NG返信、送信タイミング、次に話すとよい話題などを提案するサービスです。</p>
+      <p>本アプリは、恋愛やコミュニケーションに関する参考情報を提供するものであり、特定の結果、交際、復縁、関係改善等を保証するものではありません。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S2 -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>利用資格</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリは、18歳以上のユーザーによる利用を想定しています。</p>
+      <p>未成年の方が利用する場合は、保護者の同意を得たうえで利用してください。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S3 -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>アカウント</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、匿名ログインまたはApple ID連携を利用できます。</p>
+      <p>初回利用時は匿名ログインで開始できます。データを別端末で利用したい場合や、アカウントを引き継ぎたい場合は、Apple IDとの連携が必要です。</p>
+      <p>ユーザーは、自身のアカウントを適切に管理する責任を負います。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S4 -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>AI分析について</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリのAI分析結果は、会話内容やユーザー入力をもとに生成される参考情報です。</p>
+      <p>AIの回答は、相手の気持ちや意図を正確に判断するものではありません。相手の気持ち、状況、関係性について断定するものではなく、最終的な判断や行動はユーザー自身の責任で行うものとします。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S5 -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>禁止事項</h2>
+    </div>
+    <div class="section-body">
+      <p>ユーザーは、本アプリの利用にあたり、以下の行為をしてはなりません。</p>
+      <ul class="policy-list">
+        <li>法令または公序良俗に反する行為</li>
+        <li>相手を脅迫、強要、支配、操作しようとする行為</li>
+        <li>ストーカー行為、執拗な連絡、嫌がらせ行為</li>
+        <li>相手の意思に反して関係を迫る行為</li>
+        <li>第三者のプライバシーや権利を侵害する行為</li>
+        <li>他人の会話、画像、個人情報を不正に取得・利用する行為</li>
+        <li>本アプリの解析、改ざん、不正アクセス、不正利用</li>
+        <li>無料クレジットの不正取得、複数アカウントの不正利用</li>
+        <li>AI出力を利用した誹謗中傷、差別、攻撃的表現、性的嫌がらせ</li>
+        <li>その他、運営者が不適切と判断する行為</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S6 -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>スクリーンショットの取扱い</h2>
+    </div>
+    <div class="section-body">
+      <p>ユーザーは、会話スクリーンショットをアップロードする場合、自己の責任において行うものとします。</p>
+      <p>スクリーンショットには、相手の名前、アイコン、メッセージ内容など、第三者の情報が含まれる可能性があります。不要な個人情報はできるだけ隠してからアップロードしてください。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S7 -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>クレジット</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、AI分析にクレジットを使用します。原則として、スクリーンショット1枚につき1クレジットを消費します。初回利用時には5クレジットが付与されます。</p>
+      <p>クレジットは、AI分析結果が正常に生成・保存された場合に消費されます。通信障害、AI処理エラー、保存失敗などにより分析結果が提供されなかった場合は、クレジットが消費されない、または返却される場合があります。</p>
+      <div class="note-box">ユーザーの通信環境、端末操作、アプリ外でのトラブル等に起因する問題については、この限りではありません。</div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S8 -->
+  <section class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>サブスクリプション</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリでは、LiteプランおよびProプラン等のサブスクリプションを提供する場合があります。サブスクリプションの料金、内容、期間、付与クレジット数は、アプリ内の表示に従います。</p>
+      <table class="credit-table">
+        <thead>
+          <tr>
+            <th>プラン</th>
+            <th>月次クレジット</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Liteプラン</td>
+            <td><span class="credit-val">60</span> クレジット / 月</td>
+            <td>毎月リセット、繰越なし</td>
+          </tr>
+          <tr>
+            <td>Proプラン</td>
+            <td><span class="credit-val">120</span> クレジット / 月</td>
+            <td>毎月リセット、繰越なし</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note-box" style="margin-top:16px;">年額プランの場合でも、クレジットは原則として毎月リセットされます。未使用のサブスクリプションクレジットは、次回月次リセット時に繰り越されません。サブスクリプションの購入、更新、解約、返金等は、Appleの規約およびApp Storeの仕組みに従います。</div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S9 -->
+  <section class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>追加クレジット</h2>
+    </div>
+    <div class="section-body">
+      <p>ユーザーは、必要に応じて追加クレジットを購入できます。追加クレジットは、購入後にアカウントへ反映されます。</p>
+      <p>購入処理や反映状況に問題がある場合は、アプリ内の購入復元またはお問い合わせをご利用ください。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S10 -->
+  <section class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>購入復元</h2>
+    </div>
+    <div class="section-body">
+      <p>過去に購入したサブスクリプションや追加クレジットの状態を確認するため、アプリ内に購入復元機能を提供します。</p>
+      <p>購入復元は、Appleの購入履歴およびサーバー側の検証結果に基づいて行われます。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S11 -->
+  <section class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <h2>料金変更・プラン変更</h2>
+    </div>
+    <div class="section-body">
+      <p>運営者は、必要に応じて、プラン内容、料金、付与クレジット数等を変更する場合があります。</p>
+      <p>サブスクリプションの変更、アップグレード、ダウングレードの適用タイミングは、Appleの処理および取引情報に従います。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S12 -->
+  <section class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <h2>免責事項</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリは、AIによる提案を提供するものであり、恋愛関係の成功、交際、復縁、相手からの返信、デートの成立等を保証するものではありません。</p>
+      <p>ユーザーは、本アプリの提案を参考情報として利用し、最終的な判断と行動について自己の責任を負うものとします。</p>
+      <p>運営者は、本アプリの利用によりユーザーまたは第三者に生じた損害について、運営者に故意または重大な過失がある場合を除き、責任を負いません。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S13 -->
+  <section class="section" id="s13">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <h2>サービスの変更・停止</h2>
+    </div>
+    <div class="section-body">
+      <p>運営者は、必要に応じて、本アプリの内容を変更、追加、停止、中断、終了することがあります。</p>
+      <p>メンテナンス、システム障害、外部サービスの停止、法令対応等により、一時的に本アプリを利用できない場合があります。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S14 -->
+  <section class="section" id="s14">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <h2>利用停止</h2>
+    </div>
+    <div class="section-body">
+      <p>運営者は、ユーザーが本規約に違反した場合、不正利用が疑われる場合、または運営者が必要と判断した場合、事前の通知なく利用制限、アカウント停止、データ削除等の措置を行うことがあります。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S15 -->
+  <section class="section" id="s15">
+    <div class="section-header">
+      <div class="section-num">15</div>
+      <h2>知的財産権</h2>
+    </div>
+    <div class="section-body">
+      <p>本アプリに関するプログラム、デザイン、ロゴ、文章、画像、その他一切のコンテンツに関する権利は、運営者または正当な権利者に帰属します。</p>
+      <p>ユーザーは、運営者の許可なく、本アプリの内容を複製、転載、改変、販売、再配布することはできません。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S16 -->
+  <section class="section" id="s16">
+    <div class="section-header">
+      <div class="section-num">16</div>
+      <h2>規約の変更</h2>
+    </div>
+    <div class="section-body">
+      <p>運営者は、必要に応じて本規約を変更することがあります。変更後の規約は、アプリ内または運営者が適切と判断する方法で表示された時点から効力を生じます。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S17 -->
+  <section class="section" id="s17">
+    <div class="section-header">
+      <div class="section-num">17</div>
+      <h2>準拠法</h2>
+    </div>
+    <div class="section-body">
+      <p>本規約は、日本法に準拠します。</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- S18 / CONTACT -->
+  <section class="section" id="s18">
+    <div class="section-header">
+      <div class="section-num">18</div>
+      <h2>お問い合わせ</h2>
+    </div>
+    <div class="contact-card">
+      <h2>Contact</h2>
+      <p>本規約に関するご質問・ご連絡はこちらまで</p>
+      <div class="contact-info">
+        <div class="contact-row">
+          <span class="contact-label">運営者</span>
+          <span class="contact-value">YAMAMOTO KENGO</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">メール</span>
+          <span class="contact-value"><a href="mailto:yamayamak40@yahoo.co.jp">yamayamak40@yahoo.co.jp</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p><span class="app-name">リプライAIコーチ</span> &nbsp;·&nbsp; YAMAMOTO KENGO &nbsp;·&nbsp; © 2026</p>
+</footer>
+
+</body>
+</html>
